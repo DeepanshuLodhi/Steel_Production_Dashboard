@@ -19,12 +19,12 @@ import { KPICardData } from '../types';
 
 // Firebase configuration - Steel Production Dashboard
 const firebaseConfig = {
-  apiKey: "AIzaSyC3wKEjw8CP086b_JgyOexLOJ4wwD2OYkg",
-  authDomain: "steel-311d5.firebaseapp.com",
-  projectId: "steel-311d5",
-  storageBucket: "steel-311d5.firebasestorage.app",
-  messagingSenderId: "327560152960",
-  appId: "1:327560152960:web:aa297387163e60f4286365"
+  apiKey: "NEXT_PUBLIC_FIREBASE_API_KEY",
+  authDomain: "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN",
+  projectId: "NEXT_PUBLIC_FIREBASE_PROJECT_ID",
+  storageBucket: "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET",
+  messagingSenderId: "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID",
+  appId: "NEXT_PUBLIC_FIREBASE_APP_ID"
 };
 
 // Initialize Firebase
