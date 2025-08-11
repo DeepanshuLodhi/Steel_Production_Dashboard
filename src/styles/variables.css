@@ -1,0 +1,387 @@
+/* Steel Production Dashboard - CSS Variables */
+/* This file contains all the design tokens and CSS custom properties used throughout the application */
+
+:root {
+  /* ========================================
+     COLOR PALETTE
+     ======================================== */
+  
+  /* Primary Brand Colors - Steel Blue Theme */
+  --color-primary-50: #e3f2fd;
+  --color-primary-100: #bbdefb;
+  --color-primary-200: #90caf9;
+  --color-primary-300: #64b5f6;
+  --color-primary-400: #42a5f5;
+  --color-primary-500: #2196f3;
+  --color-primary-600: #1e88e5;
+  --color-primary-700: #1976d2;
+  --color-primary-800: #1565c0;
+  --color-primary-900: #0d47a1;
+
+  /* Secondary Colors - Industrial Steel */
+  --color-secondary-50: #f3f4f6;
+  --color-secondary-100: #e5e7eb;
+  --color-secondary-200: #d1d5db;
+  --color-secondary-300: #9ca3af;
+  --color-secondary-400: #6b7280;
+  --color-secondary-500: #4b5563;
+  --color-secondary-600: #374151;
+  --color-secondary-700: #1f2937;
+  --color-secondary-800: #111827;
+  --color-secondary-900: #030712;
+
+  /* Accent Colors */
+  --color-accent-cyan: #06b6d4;
+  --color-accent-teal: #14b8a6;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-pink: #ec4899;
+  --color-accent-orange: #f97316;
+
+  /* Semantic Colors */
+  --color-success-light: #dcfce7;
+  --color-success: #16a34a;
+  --color-success-dark: #15803d;
+  
+  --color-warning-light: #fef3c7;
+  --color-warning: #d97706;
+  --color-warning-dark: #b45309;
+  
+  --color-error-light: #fee2e2;
+  --color-error: #dc2626;
+  --color-error-dark: #b91c1c;
+  
+  --color-info-light: #dbeafe;
+  --color-info: #2563eb;
+  --color-info-dark: #1d4ed8;
+
+  /* Performance Status Colors */
+  --color-excellent: #10b981;
+  --color-good: #8bc34a;
+  --color-average: #ff9800;
+  --color-poor: #f44336;
+
+  /* Glassmorphism Colors */
+  --color-glass-white-10: rgba(255, 255, 255, 0.1);
+  --color-glass-white-15: rgba(255, 255, 255, 0.15);
+  --color-glass-white-20: rgba(255, 255, 255, 0.2);
+  --color-glass-white-25: rgba(255, 255, 255, 0.25);
+  --color-glass-black-10: rgba(0, 0, 0, 0.1);
+  --color-glass-black-20: rgba(0, 0, 0, 0.2);
+  --color-glass-black-30: rgba(0, 0, 0, 0.3);
+
+  /* ========================================
+     BACKGROUND GRADIENTS
+     ======================================== */
+  
+  /* Main Dashboard Background */
+  --gradient-dashboard: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-dashboard-alt: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-dashboard-dark: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
+
+  /* Card Gradients */
+  --gradient-card-primary: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-600));
+  --gradient-card-success: linear-gradient(135deg, var(--color-success), #059669);
+  --gradient-card-warning: linear-gradient(135deg, var(--color-warning), #c2410c);
+  --gradient-card-error: linear-gradient(135deg, var(--color-error), #991b1b);
+
+  /* Button Gradients */
+  --gradient-button-primary: linear-gradient(135deg, #667eea, #764ba2);
+  --gradient-button-success: linear-gradient(135deg, var(--color-success), var(--color-success-dark));
+  --gradient-button-danger: linear-gradient(135deg, var(--color-error), var(--color-error-dark));
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+  
+  /* Font Families */
+  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-secondary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+  --font-family-display: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Letter Spacing */
+  --letter-spacing-tighter: -0.05em;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+  --letter-spacing-widest: 0.1em;
+
+  /* ========================================
+     SPACING & SIZING
+     ======================================== */
+  
+  /* Spacing Scale */
+  --space-px: 1px;
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Component Sizes */
+  --size-sidebar-width: 280px;
+  --size-sidebar-collapsed: 80px;
+  --size-card-min-width: 300px;
+  --size-card-min-height: 200px;
+  --size-modal-sm: 400px;
+  --size-modal-md: 600px;
+  --size-modal-lg: 800px;
+  --size-modal-xl: 1200px;
+
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  
+  --radius-none: 0;
+  --radius-sm: 0.125rem;    /* 2px */
+  --radius-base: 0.25rem;   /* 4px */
+  --radius-md: 0.375rem;    /* 6px */
+  --radius-lg: 0.5rem;      /* 8px */
+  --radius-xl: 0.75rem;     /* 12px */
+  --radius-2xl: 1rem;       /* 16px */
+  --radius-3xl: 1.5rem;     /* 24px */
+  --radius-full: 9999px;
+
+  /* Component Specific Radius */
+  --radius-card: var(--radius-3xl);
+  --radius-button: var(--radius-xl);
+  --radius-input: var(--radius-lg);
+  --radius-modal: var(--radius-3xl);
+
+  /* ========================================
+     SHADOWS & ELEVATIONS
+     ======================================== */
+  
+  /* Box Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-base: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Glassmorphism Shadows */
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-glass-lg: 0 12px 40px rgba(0, 0, 0, 0.15);
+  --shadow-glass-xl: 0 16px 48px rgba(0, 0, 0, 0.2);
+
+  /* Colored Shadows */
+  --shadow-primary: 0 10px 25px rgba(33, 150, 243, 0.3);
+  --shadow-success: 0 10px 25px rgba(76, 175, 80, 0.3);
+  --shadow-warning: 0 10px 25px rgba(255, 152, 0, 0.3);
+  --shadow-error: 0 10px 25px rgba(244, 67, 54, 0.3);
+
+  /* ========================================
+     Z-INDEX SCALE
+     ======================================== */
+  
+  --z-index-base: 0;
+  --z-index-docked: 10;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-banner: 1030;
+  --z-index-overlay: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+  --z-index-toast: 1080;
+
+  /* ========================================
+     TRANSITIONS & ANIMATIONS
+     ======================================== */
+  
+  /* Transition Durations */
+  --duration-75: 75ms;
+  --duration-100: 100ms;
+  --duration-150: 150ms;
+  --duration-200: 200ms;
+  --duration-300: 300ms;
+  --duration-500: 500ms;
+  --duration-700: 700ms;
+  --duration-1000: 1000ms;
+
+  /* Transition Timing Functions */
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-elastic: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Common Transitions */
+  --transition-fast: all var(--duration-150) var(--ease-out);
+  --transition-base: all var(--duration-300) var(--ease-in-out);
+  --transition-slow: all var(--duration-500) var(--ease-in-out);
+  --transition-transform: transform var(--duration-300) var(--ease-in-out);
+  --transition-opacity: opacity var(--duration-300) var(--ease-in-out);
+  --transition-colors: color var(--duration-300) var(--ease-in-out), 
+                       background-color var(--duration-300) var(--ease-in-out), 
+                       border-color var(--duration-300) var(--ease-in-out);
+
+  /* ========================================
+     BACKDROP FILTERS
+     ======================================== */
+  
+  --backdrop-blur-sm: blur(4px);
+  --backdrop-blur-base: blur(8px);
+  --backdrop-blur-md: blur(12px);
+  --backdrop-blur-lg: blur(16px);
+  --backdrop-blur-xl: blur(24px);
+  --backdrop-blur-2xl: blur(40px);
+  --backdrop-blur-3xl: blur(64px);
+
+  /* ========================================
+     BREAKPOINTS (for reference in JS)
+     ======================================== */
+  
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+
+  /* ========================================
+     COMPONENT-SPECIFIC VARIABLES
+     ======================================== */
+  
+  /* KPI Card Variables */
+  --kpi-card-padding: var(--space-6);
+  --kpi-card-gap: var(--space-4);
+  --kpi-card-border-width: 1px;
+  --kpi-performance-circle-size: 80px;
+  --kpi-progress-height: 8px;
+
+  /* Sidebar Variables */
+  --sidebar-padding: var(--space-4);
+  --sidebar-header-height: 80px;
+  --sidebar-transition: all var(--duration-300) var(--ease-in-out);
+
+  /* Modal Variables */
+  --modal-padding: var(--space-8);
+  --modal-header-height: 64px;
+  --modal-footer-height: 72px;
+  --modal-overlay-backdrop: var(--backdrop-blur-base);
+
+  /* Button Variables */
+  --button-padding-sm: var(--space-2) var(--space-4);
+  --button-padding-base: var(--space-3) var(--space-6);
+  --button-padding-lg: var(--space-4) var(--space-8);
+  --button-height-sm: 32px;
+  --button-height-base: 40px;
+  --button-height-lg: 48px;
+
+  /* Form Variables */
+  --input-padding: var(--space-3) var(--space-4);
+  --input-border-width: 2px;
+  --input-height: 48px;
+  --input-focus-ring: 0 0 0 3px;
+
+  /* ========================================
+     PRINT STYLES
+     ======================================== */
+  
+  @media print {
+    --color-text: #000;
+    --color-bg: #fff;
+    --shadow-base: none;
+    --shadow-lg: none;
+  }
+}
+
+/* ========================================
+   DARK MODE VARIABLES (Future Enhancement)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Override specific variables for dark mode */
+    --color-text-primary: #f8fafc;
+    --color-text-secondary: #cbd5e1;
+    --color-bg-primary: #0f172a;
+    --color-bg-secondary: #1e293b;
+    
+    /* Adjust glassmorphism for dark mode */
+    --color-glass-white-10: rgba(255, 255, 255, 0.05);
+    --color-glass-white-15: rgba(255, 255, 255, 0.08);
+    --color-glass-white-20: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-75: 0ms;
+    --duration-100: 0ms;
+    --duration-150: 0ms;
+    --duration-200: 0ms;
+    --duration-300: 0ms;
+    --duration-500: 0ms;
+    --duration-700: 0ms;
+    --duration-1000: 0ms;
+    
+    --transition-fast: none;
+    --transition-base: none;
+    --transition-slow: none;
+    --transition-transform: none;
+    --transition-opacity: none;
+    --transition-colors: none;
+  }
+}
+
+/* ========================================
+   HIGH CONTRAST SUPPORT
+   ======================================== */
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary-500: #0066cc;
+    --color-success: #007700;
+    --color-warning: #cc6600;
+    --color-error: #cc0000;
+    
+    /* Increase border contrast */
+    --color-glass-white-15: rgba(255, 255, 255, 0.3);
+    --color-glass-white-20: rgba(255, 255, 255, 0.4);
+  }
+}

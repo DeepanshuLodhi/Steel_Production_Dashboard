@@ -1,0 +1,540 @@
+/* KPI Card Container */
+.kpiCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  color: white;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.kpiCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.1) 0%, 
+    rgba(255, 255, 255, 0.05) 50%, 
+    rgba(255, 255, 255, 0.1) 100%);
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.kpiCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.dragMode {
+  cursor: grab;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+}
+
+.dragMode:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Delete Button and Move Buttons */
+.deleteButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.deleteButton:hover {
+  background: rgba(255, 0, 0, 0.3);
+  border-color: rgba(255, 0, 0, 0.6);
+  transform: scale(1.1);
+}
+
+.moveButtons {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  z-index: 10;
+}
+
+.moveButton {
+  background: rgba(79, 195, 247, 0.2);
+  border: 1px solid rgba(79, 195, 247, 0.4);
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4fc3f7;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.moveButton:hover:not(.disabled) {
+  background: rgba(79, 195, 247, 0.3);
+  border-color: rgba(79, 195, 247, 0.6);
+  transform: scale(1.05);
+}
+
+.moveButton.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Card Header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-right: 3rem;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cardIcon {
+  width: 24px;
+  height: 24px;
+  color: #4fc3f7;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.titleContainer {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.periodLabel {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.trendContainer {
+  display: flex;
+  align-items: center;
+}
+
+.trendIcon {
+  width: 20px;
+  height: 20px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+}
+
+.trendUp {
+  color: #4caf50;
+}
+
+.trendDown {
+  color: #f44336;
+}
+
+.trendStable {
+  color: #ff9800;
+}
+
+/* Card Body */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mainMetric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.actualValue {
+  display: flex;
+  flex-direction: column;
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Performance Circle */
+.performanceIndicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.performanceCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid;
+  transition: all 0.3s ease;
+}
+
+.performanceCircle::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, currentColor, transparent);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.excellent {
+  border-color: #4caf50;
+  color: #4caf50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.good {
+  border-color: #8bc34a;
+  color: #8bc34a;
+  box-shadow: 0 0 20px rgba(139, 195, 74, 0.3);
+}
+
+.average {
+  border-color: #ff9800;
+  color: #ff9800;
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.3);
+}
+
+.poor {
+  border-color: #f44336;
+  color: #f44336;
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+}
+
+.percentage {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: inherit;
+}
+
+/* Benchmark Section */
+.benchmarkSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.benchmarkItem,
+.varianceItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.benchmarkLabel,
+.varianceLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.benchmarkValue,
+.varianceValue {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.varianceValue.positive {
+  color: #4caf50;
+}
+
+.varianceValue.negative {
+  color: #f44336;
+}
+
+/* Progress Bar */
+.progressBar {
+  position: relative;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.progressFill.excellent {
+  background: linear-gradient(90deg, #4caf50, #66bb6a);
+}
+
+.progressFill.good {
+  background: linear-gradient(90deg, #8bc34a, #9ccc65);
+}
+
+.progressFill.average {
+  background: linear-gradient(90deg, #ff9800, #ffb74d);
+}
+
+.progressFill.poor {
+  background: linear-gradient(90deg, #f44336, #ef5350);
+}
+
+.progressGlow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent);
+  animation: progressGlow 2s infinite;
+}
+
+@keyframes progressGlow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Hourly Rate Section */
+.hourlyRate {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hourlyLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hourlyValues {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.hourlyActual {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4fc3f7;
+}
+
+.hourlySeparator {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.hourlyBenchmark {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
+}
+
+/* Card Footer */
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.statusGreen {
+  background: #4caf50;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.statusYellow {
+  background: #ff9800;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+}
+
+.statusRed {
+  background: #f44336;
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.statusText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lastUpdated {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .kpiCard {
+    padding: 1.25rem;
+  }
+  
+  .cardHeader {
+    margin-bottom: 1.25rem;
+    padding-right: 2.5rem;
+  }
+  
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .cardIcon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .cardTitle {
+    font-size: 1.1rem;
+  }
+  
+  .value {
+    font-size: 1.75rem;
+  }
+  
+  .performanceCircle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .percentage {
+    font-size: 1rem;
+  }
+  
+  .benchmarkSection {
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .kpiCard {
+    padding: 1rem;
+  }
+  
+  .mainMetric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .performanceIndicator {
+    align-self: flex-end;
+  }
+  
+  .performanceCircle {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .percentage {
+    font-size: 0.9rem;
+  }
+  
+  .benchmarkSection {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .cardFooter {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+}

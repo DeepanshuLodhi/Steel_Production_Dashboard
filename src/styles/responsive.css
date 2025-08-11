@@ -1,0 +1,620 @@
+/* Steel Production Dashboard - Responsive Utilities */
+/* This file contains responsive breakpoints, utilities, and component adaptations */
+
+/* ========================================
+   BREAKPOINT MIXINS (CSS Custom Media Queries)
+   ======================================== */
+
+/* Custom media queries for consistent breakpoints */
+@custom-media --screen-sm (min-width: 640px);
+@custom-media --screen-md (min-width: 768px);
+@custom-media --screen-lg (min-width: 1024px);
+@custom-media --screen-xl (min-width: 1280px);
+@custom-media --screen-2xl (min-width: 1536px);
+
+/* Max-width queries for mobile-first approach */
+@custom-media --screen-sm-down (max-width: 639px);
+@custom-media --screen-md-down (max-width: 767px);
+@custom-media --screen-lg-down (max-width: 1023px);
+@custom-media --screen-xl-down (max-width: 1279px);
+
+/* ========================================
+   CONTAINER UTILITIES
+   ======================================== */
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-4);
+  padding-right: var(--space-4);
+}
+
+/* Responsive container max-widths */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE GRID SYSTEM
+   ======================================== */
+
+/* CSS Grid responsive utilities */
+.grid-responsive {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+/* Auto-fit responsive grid */
+.grid-auto-fit {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* Breakpoint-specific grid columns */
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+  
+  .grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .grid-responsive {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   FLEXBOX UTILITIES
+   ======================================== */
+
+/* Responsive flex direction */
+.flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .flex-responsive {
+    flex-direction: row;
+    gap: var(--space-6);
+  }
+}
+
+/* Responsive flex wrapping */
+.flex-wrap-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .flex-wrap-responsive {
+    flex-wrap: nowrap;
+    gap: var(--space-6);
+  }
+}
+
+/* ========================================
+   SPACING UTILITIES
+   ======================================== */
+
+/* Responsive padding classes */
+.p-responsive {
+  padding: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .p-responsive {
+    padding: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .p-responsive {
+    padding: var(--space-8);
+  }
+}
+
+/* Responsive margin classes */
+.m-responsive {
+  margin: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .m-responsive {
+    margin: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .m-responsive {
+    margin: var(--space-8);
+  }
+}
+
+/* ========================================
+   TYPOGRAPHY UTILITIES
+   ======================================== */
+
+/* Responsive heading sizes */
+.text-heading-responsive {
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-tight);
+  font-weight: var(--font-weight-bold);
+}
+
+@media (min-width: 768px) {
+  .text-heading-responsive {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-heading-responsive {
+    font-size: var(--font-size-4xl);
+  }
+}
+
+/* Responsive subheading */
+.text-subheading-responsive {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-semibold);
+}
+
+@media (min-width: 768px) {
+  .text-subheading-responsive {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-subheading-responsive {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Responsive body text */
+.text-body-responsive {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+@media (min-width: 768px) {
+  .text-body-responsive {
+    font-size: var(--font-size-base);
+  }
+}
+
+/* ========================================
+   COMPONENT-SPECIFIC RESPONSIVE STYLES
+   ======================================== */
+
+/* Dashboard Layout Responsiveness */
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Mobile: Stack layout */
+@media (max-width: 1023px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    max-width: 320px;
+    transform: translateX(-100%);
+    transition: transform var(--duration-300) var(--ease-in-out);
+    z-index: var(--z-index-overlay);
+  }
+  
+  .dashboard-sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .dashboard-main {
+    flex: 1;
+    padding: var(--space-4);
+    margin-left: 0;
+  }
+}
+
+/* Desktop: Side-by-side layout */
+@media (min-width: 1024px) {
+  .dashboard-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--size-sidebar-width);
+    transform: translateX(0);
+  }
+  
+  .dashboard-main {
+    flex: 1;
+    margin-left: var(--size-sidebar-width);
+    padding: var(--space-8);
+  }
+  
+  .dashboard-sidebar.collapsed {
+    width: var(--size-sidebar-collapsed);
+  }
+  
+  .dashboard-sidebar.collapsed + .dashboard-main {
+    margin-left: var(--size-sidebar-collapsed);
+  }
+}
+
+/* KPI Cards Responsiveness */
+.kpi-cards-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1280px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Individual KPI Card Responsiveness */
+.kpi-card-responsive {
+  padding: var(--space-4);
+  min-height: 200px;
+}
+
+@media (min-width: 768px) {
+  .kpi-card-responsive {
+    padding: var(--space-6);
+    min-height: 240px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .kpi-card-responsive {
+    padding: var(--space-8);
+    min-height: 280px;
+  }
+}
+
+/* Modal Responsiveness */
+.modal-responsive {
+  width: 95vw;
+  max-width: var(--size-modal-sm);
+  margin: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .modal-responsive {
+    width: 90vw;
+    max-width: var(--size-modal-md);
+    margin: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .modal-responsive {
+    width: 80vw;
+    max-width: var(--size-modal-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .modal-responsive {
+    width: 70vw;
+    max-width: var(--size-modal-xl);
+  }
+}
+
+/* ========================================
+   VISIBILITY UTILITIES
+   ======================================== */
+
+/* Hide on mobile */
+.hidden-sm {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .hidden-sm {
+    display: block;
+  }
+}
+
+/* Hide on tablet and up */
+.hidden-md-up {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hidden-md-up {
+    display: none;
+  }
+}
+
+/* Hide on desktop and up */
+.hidden-lg-up {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .hidden-lg-up {
+    display: none;
+  }
+}
+
+/* Show only on mobile */
+.visible-sm-only {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .visible-sm-only {
+    display: none;
+  }
+}
+
+/* Show only on desktop */
+.visible-lg-only {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .visible-lg-only {
+    display: block;
+  }
+}
+
+/* ========================================
+   RESPONSIVE INTERACTIONS
+   ======================================== */
+
+/* Touch-friendly tap targets on mobile */
+@media (max-width: 1023px) {
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
+  }
+  
+  /* Larger padding for touch interfaces */
+  .touch-padding {
+    padding: var(--space-4) var(--space-6);
+  }
+  
+  /* Disable hover effects on touch devices */
+  .hover-effect:hover {
+    /* Only apply hover effects on non-touch devices */
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  /* Hide interactive elements when printing */
+  .print-hidden,
+  .dashboard-sidebar,
+  .modal-overlay,
+  .floating-button,
+  .tooltip {
+    display: none !important;
+  }
+  
+  /* Optimize layout for printing */
+  .dashboard-main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .kpi-cards-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: var(--space-4) !important;
+  }
+  
+  .kpi-card-responsive {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: var(--space-4);
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+  }
+  
+  /* Ensure text is readable in print */
+  * {
+    color: #000 !important;
+    background: transparent !important;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ASPECT RATIOS
+   ======================================== */
+
+/* Responsive aspect ratio containers */
+.aspect-ratio-responsive {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.aspect-ratio-responsive > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Square aspect ratio on mobile, 16:9 on desktop */
+.aspect-ratio-adaptive {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* 1:1 aspect ratio on mobile */
+}
+
+@media (min-width: 768px) {
+  .aspect-ratio-adaptive {
+    padding-bottom: 56.25%; /* 16:9 aspect ratio on desktop */
+  }
+}
+
+/* ========================================
+   RESPONSIVE ANIMATIONS
+   ======================================== */
+
+/* Reduce motion on mobile devices to save battery */
+@media (max-width: 767px) {
+  * {
+    animation-duration: 0.1s !important;
+    transition-duration: 0.1s !important;
+  }
+}
+
+/* Re-enable full animations on larger screens */
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .animate-on-desktop {
+    animation-duration: var(--duration-300);
+    transition-duration: var(--duration-300);
+  }
+}
+
+/* ========================================
+   RESPONSIVE SCROLLING
+   ======================================== */
+
+/* Smooth scrolling behavior */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar styles for webkit browsers */
+@media (min-width: 1024px) {
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--color-glass-white-10);
+    border-radius: var(--radius-base);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-glass-white-20);
+    border-radius: var(--radius-base);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-glass-white-25);
+  }
+}
+
+/* ========================================
+   RESPONSIVE PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* GPU acceleration for better performance on mobile */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize images for different screen densities */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi-image {
+    /* Load high-resolution images for retina displays */
+  }
+}
+
+/* Lazy loading optimization for mobile */
+@media (max-width: 767px) {
+  .lazy-load {
+    content-visibility: auto;
+    contain-intrinsic-size: 200px;
+  }
+}
